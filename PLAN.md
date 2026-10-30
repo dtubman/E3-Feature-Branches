@@ -27,3 +27,11 @@ Result: It ended up matching the plan, I did also think about adding curved eyeb
 ## Choosing criteria
 
 I will choose which alternative to keep based on how each turns out, if the freckles are easily visible while not being cluttered, if the hat and sunglasses combo works together, and if the gradient mixed with the unhappy face properly creates an angry looking face. Overall though, I will choose which one is the clearest when at a small size.
+
+## Decision
+
+Chosen branch: B, the drawn top hat and sunglasses.
+
+I picked B due to a combination of really liking how it turned out and that it followed my overall criteria of having clarity at a small size. Both of the accessories, the top-hat and sunglasses, are large and easy to see leading to the whole character still being visible when the portrait is small. I didn't like how the other additions as much as the freckles were crowded and the face looked more stressed than angry.
+
+I rebased B onto 'main' after the 'buildFace()' refactor so the hat and sunglasses are now drawn inside of the function buildFace(). Parts A and C remain on their own branches.
