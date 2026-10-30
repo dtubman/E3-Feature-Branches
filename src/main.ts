@@ -5,7 +5,10 @@ const spin = document.querySelector<HTMLButtonElement>("#spin")!;
 const face = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 face.setAttribute("viewBox", "0 0 200 200");
 face.setAttribute("role", "img");
-face.setAttribute("aria-label", "A neutral face");
+face.setAttribute(
+  "aria-label",
+  "A face with a cluster of freckles on each cheek",
+);
 
 const head = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
 head.setAttribute("cx", "100");
@@ -58,6 +61,27 @@ mouth.setAttribute("stroke", "#302c29");
 mouth.setAttribute("stroke-width", "4");
 mouth.setAttribute("stroke-linecap", "round");
 face.append(mouth);
+
+const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
+
+function addFreckles(cx: number, cy: number, radius: number, count: number) {
+  for (let i = 0; i < count; i++) {
+    const angle = i * GOLDEN_ANGLE;
+    const dist = radius * Math.sqrt(i / count);
+    const freckle = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "circle",
+    );
+    freckle.setAttribute("cx", String(cx + dist * Math.cos(angle)));
+    freckle.setAttribute("cy", String(cy + dist * Math.sin(angle)));
+    freckle.setAttribute("r", "1.3");
+    freckle.setAttribute("fill", "#a0522d");
+    face.append(freckle);
+  }
+}
+
+addFreckles(62, 112, 16, 75);
+addFreckles(138, 112, 16, 75);
 
 portrait.append(face);
 
